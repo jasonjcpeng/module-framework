@@ -1,18 +1,18 @@
 {
-  "name": "injected-notify",
+  "name": "module-framework",
   "version": "1.0.0",
-  "description": "A lib to do callback when http site be injected by network operator",
-  "main": "index.js",
+  "description": "A framework for single module development",
+  "main": "dist/index.js",
   "scripts": {
     "dist": "npx webpack --config build/webpack.dist.config.js",
     "dev": "node build/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasonjcpeng/injected-notify.git"
+    "url": "https://github.com/jasonjcpeng/injected-notify.git"
   },
   "keywords": [
-    "inject"
+    "framework"
   ],
   "author": "jasonjcpeng",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "express": "^4.16.3",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "json-parse-better-errors": "^1.0.2",
     "webpack": "^4.19.1",

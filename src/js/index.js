@@ -4,7 +4,7 @@ class Module{
   }
 
   init(){
-    console.log(122);
+    console.log('hello world');
   }
 }
 
