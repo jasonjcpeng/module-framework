@@ -1,3 +1,7 @@
-export default () => {
-  console.log("------------000------------->", 123);
-};
+import moment from 'moment';
+
+export default class index{
+    constructor(){
+        console.log('-----------moment()------------->',moment().format());
+    }
+}
