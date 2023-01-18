@@ -1,7 +1,8 @@
-import moment from 'moment';
+import 'core-js/features/promise'
+import moment from 'moment'
 
-export default class index{
-    constructor(){
-        console.log('-----------moment()------------->',moment().format());
+export default class index {
+    constructor() {
+        console.log('-----------moment()------------->', moment().format())
     }
 }

@@ -11,6 +11,7 @@
         "declarationDir": "dist",
         "typeRoots": ["./types", "./node_modules/@types"],
         "skipLibCheck": true,
-        "moduleResolution": "Node"
+        "moduleResolution": "Node",
+        "lib": ["ES2015", "DOM"]
     }
 }
