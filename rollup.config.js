@@ -1,48 +1,42 @@
-
 import { uglify } from 'rollup-plugin-uglify'
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "rollup-plugin-typescript2";
-import json from '@rollup/plugin-json';
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import typescript from 'rollup-plugin-typescript2'
+import json from '@rollup/plugin-json'
 
 // ENV
 const isProd = process.env.NODE_ENV === 'prod'
 
 // plugin
 const basePlugins = [
-    resolve(),
+    resolve({ browser: true }),
     commonjs(),
     typescript(),
     json(),
 ]
 
-const devPlugins = [
-    ...basePlugins
-]
+const devPlugins = [...basePlugins]
 
-const prodPlugins = [
-    ...basePlugins,
-    uglify()
-]
+const prodPlugins = [...basePlugins, uglify()]
 
 // output
-const outputMode = ['es','cjs','umd']
+const outputMode = ['es', 'cjs', 'umd']
 
-const output = outputMode.map(mode=>{
+const output = outputMode.map((mode) => {
     let baseOutput = {
-        file:`dist/bundle.${mode}.js`,
-        format:mode,
+        file: `dist/bundle.${mode}.js`,
+        format: mode,
         sourcemap: true,
     }
 
-    if(mode === 'umd'){
+    if (mode === 'umd') {
         baseOutput = {
             ...baseOutput,
-            file:`dist/bundle.js`,
-            name:'thisBundle'
+            file: `dist/bundle.js`,
+            name: 'thisBundle',
         }
     }
-    
+
     return baseOutput
 })
 
@@ -50,5 +44,5 @@ const output = outputMode.map(mode=>{
 export default {
     input: 'src/index.ts',
     output,
-    plugins: isProd ? prodPlugins : devPlugins ,
-  };
+    plugins: isProd ? prodPlugins : devPlugins,
+}
