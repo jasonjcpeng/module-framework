@@ -1,4 +1,5 @@
 import { uglify } from 'rollup-plugin-uglify'
+import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
@@ -13,6 +14,7 @@ const basePlugins = [
     commonjs(),
     typescript(),
     json(),
+    babel({ babelHelpers: 'bundled' }),
 ]
 
 const devPlugins = [...basePlugins]
@@ -27,6 +29,7 @@ const output = outputMode.map((mode) => {
         file: `dist/bundle.${mode}.js`,
         format: mode,
         sourcemap: true,
+        exports: 'named',
     }
 
     if (mode === 'umd') {
@@ -34,6 +37,7 @@ const output = outputMode.map((mode) => {
             ...baseOutput,
             file: `dist/bundle.js`,
             name: 'thisBundle',
+            exports: 'named',
         }
     }
 
